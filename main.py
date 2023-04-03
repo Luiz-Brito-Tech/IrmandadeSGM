@@ -1,7 +1,5 @@
 from flask import Flask, render_template
 
-# testando!
-
 app = Flask(__name__)
 app_context = app.app_context()
 
