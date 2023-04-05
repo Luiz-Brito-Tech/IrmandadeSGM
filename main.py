@@ -7,6 +7,11 @@ app_context = app.app_context()
 def homepage():
     return render_template("homepage.html")
 
+@app.route('/entrar')
+def login():
+    return render_template("login.html")
+
+
 @app.route('/artigos')
 def articles():
     return render_template("articles.html")
