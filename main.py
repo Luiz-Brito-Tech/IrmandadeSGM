@@ -12,7 +12,8 @@ def homepage():
 def login():
     if request.method == 'GET':
         return render_template("login.html")
-    elif request.method == 'POST':
+    else:
+        # preenche a sessão com os dados enviados no formulário de login
         for key in request.form.keys():
             session[key] = request.form[key]
         return redirect(url_for("dashboard"))
@@ -22,6 +23,8 @@ def dashboard():
     if 'username' in session:
         username = session['username']
         return render_template("dashboard.html", username=username)
+    else:
+        return redirect(url_for("login"))
 
 @app.route('/artigos')
 def articles():
